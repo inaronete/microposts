@@ -1,27 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (Auth::check())
-        <div class="row">
-            <asaide class="col-xs-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">{{ $user->name }}</h3>
-                    </div>
-                </div>
-            </asaide>
-            <div class="col-xs-8">
-                @if (count($micropost) > 0)
-                    @include('microposts.microposts', ['microposts' => $microposts])
-                @endif
-            </div>
+    <div class="center jumbotron">
+        <div class="text-center">
+            <h1>Welcome to the Microposts</h1>
         </div>
-       @else
-           <div class="center jumbotron">
-               <div class="text-center">
-                   <h1>Welcome to the Microposts</h1>
-                   {{!! link_to_route('signup.get', 'Sign up now!', null, ['class' => 'btn btn-lg btn-primary']) !!}
-               </div>
-           </div>
-        @endif
+    </div>
 @endsection
