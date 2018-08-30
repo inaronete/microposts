@@ -60,6 +60,12 @@ class UsersController extends Controller
         
         $data += $this->counts($user);
         
-        return view('users,followers', $data);
+        return view('users.followers', $data);
+    }
+    
+    public function favoriting($id)
+    {
+        
+        $user = User::find($id);
     }
 }
