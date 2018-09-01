@@ -23,7 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('followings', 'UsersController@followings')->name('users.followings');
         Route::get('followers', 'UsersController@followers')->name('users.followers');
         //お気に入り機能
-        Route::get('favoriting', 'UsersController@followings')->name('users.favoriting');
+        Route::get('favoriting', 'UserFavoriteController@index')->name('users.favoriting');
     });
     
     Route::group(['prefix' => 'microposts/{id}'], function() {

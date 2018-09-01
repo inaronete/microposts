@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 class UserFavoriteController extends Controller
 {
       public function store($id)
@@ -24,7 +26,17 @@ class UserFavoriteController extends Controller
     
     public function index($id)
     {
-     \Auth::user()->favoriting($id);
-        return redirect()->back();   
+        $user = User::find($id);
+        $microposts = $user->favoriting()->paginate(10);
+      
+        
+         $data = [
+            'user' => $user,
+            'favoriting' => $microposts,
+        ];
+        
+        $data += $this->counts($user);
+        
+        return view('users.favoriting', $data);
     }
 }
