@@ -2,7 +2,7 @@
 
 @section('content')
     <div class='row'>
-        <asaide class="col-xs-4">
+        <aside class="col-xs-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">{{ $user->name }}</h3>
@@ -12,7 +12,7 @@
                 </div>
             </div>
             @include('user_follow.follow_button', ['user' =>$user])
-        </asaide>
+        </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified">
                 <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}"> TimeLine <span class="badge">{{ $count_microposts }}</span></a></li>
